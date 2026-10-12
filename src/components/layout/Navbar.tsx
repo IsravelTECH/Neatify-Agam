@@ -35,24 +35,42 @@ export const Navbar: React.FC = () => {
     setIsDark(!isDark);
   };
 
+  // Curated primary links for a clean, spacious desktop bar
+  const primaryLinks = [
+    { name: "Services", href: "#services" },
+    { name: "Sectors", href: "#sectors" },
+    { name: "Pricing", href: "#pricing" },
+    { name: "Packages", href: "#packages" },
+    { name: "Reviews", href: "#testimonials" },
+    { name: "How It Works", href: "#how-it-works" },
+    { name: "Promises", href: "#promises" },
+    { name: "Impact", href: "#hundi-of-help" },
+    { name: "FAQ", href: "#faq" },
+  ];
+
   return (
     <>
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled
-            ? "bg-[var(--bg)]/95 backdrop-blur-md shadow-sm border-b border-[var(--line)] py-3"
-            : "bg-transparent py-5"
+          isScrolled ? "py-2.5 sm:py-3" : "py-3.5 sm:py-4"
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div
+            className={cn(
+              "flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-full transition-all duration-300",
+              isScrolled
+                ? "bg-[var(--card)]/90 backdrop-blur-md shadow-md border border-[var(--line)]"
+                : "bg-[var(--card)]/75 backdrop-blur-sm border border-[var(--line)]/60 shadow-xs"
+            )}
+          >
+            {/* Brand Logo & Title */}
             <Link
               href="/"
-              className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[var(--gold)] rounded-lg p-1"
+              className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-[var(--gold)] rounded-full shrink-0"
             >
-              <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-[var(--gold)]/40 shadow-sm bg-[var(--green)]">
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-[var(--gold)]/50 shadow-xs bg-[var(--green)]">
                 <Image
                   src="/logo/neatify-agam-logo.png"
                   alt="NEATIFY AGAM Emblem"
@@ -62,65 +80,78 @@ export const Navbar: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-serif-heading font-bold text-xl sm:text-2xl tracking-wide text-[var(--gold)] leading-none">
+                <span className="font-serif-heading font-bold text-lg sm:text-xl tracking-wider text-[var(--gold)] leading-none">
                   {BRAND.name}
                 </span>
-                <span className="text-[10px] tracking-[0.16em] uppercase text-[var(--mute)] font-semibold mt-0.5">
+                <span className="text-[9px] tracking-[0.2em] uppercase text-[var(--mute)] font-bold mt-0.5">
                   Chennai • 24/7
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold text-[var(--ink)]">
-              {NAVIGATION_LINKS.map((link) => (
+            <nav className="hidden xl:flex items-center gap-5 2xl:gap-6 text-xs font-bold tracking-wide text-[var(--ink)]">
+              {primaryLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="hover:text-[var(--gold)] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[var(--gold)] hover:after:w-full after:transition-all"
+                  className="hover:text-[var(--gold)] transition-colors py-1 relative after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-[var(--gold)] hover:after:w-full after:transition-all whitespace-nowrap"
                 >
                   {link.name}
                 </Link>
               ))}
             </nav>
 
-            {/* Desktop Action CTAs & Theme Toggle */}
-            <div className="hidden sm:flex items-center gap-3">
+            {/* Desktop Navigation for Large (1024-1279px) */}
+            <nav className="hidden lg:flex xl:hidden items-center gap-4 text-xs font-bold text-[var(--ink)]">
+              {primaryLinks.slice(0, 6).map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="hover:text-[var(--gold)] transition-colors py-1 whitespace-nowrap"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Right CTAs, Direct Phone, & Theme Toggle */}
+            <div className="hidden sm:flex items-center gap-2.5 shrink-0">
               <button
                 onClick={toggleTheme}
                 aria-label="Toggle dark mode"
                 className="p-2 rounded-full border border-[var(--line)] text-[var(--mute)] hover:text-[var(--gold)] hover:border-[var(--gold)] transition-colors cursor-pointer"
               >
-                {mounted && isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                {mounted && isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
               </button>
 
               <a
                 href={BRAND.telLink}
-                className="hidden xl:inline-flex items-center gap-1.5 text-xs font-bold text-[var(--ink)] hover:text-[var(--gold)] transition-colors py-2 px-3 rounded-full border border-[var(--line)]"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--ink)] hover:text-[var(--gold)] hover:border-[var(--gold)] transition-colors py-1.5 px-3 rounded-full border border-[var(--line)] bg-[var(--bg)]/50"
               >
-                <Phone className="w-3.5 h-3.5 text-[var(--gold)]" />
-                <span>+91 9962 9171 47</span>
+                <Phone className="w-3 h-3 text-[var(--gold)]" />
+                <span className="whitespace-nowrap">+91 9962 9171 47</span>
               </a>
 
-              <WhatsAppButton size="sm" text="Get Quote" />
+              <WhatsAppButton size="sm" text="Get Quote" className="shadow-xs" />
             </div>
 
-            {/* Mobile Menu & Theme Toggle Buttons */}
-            <div className="flex items-center gap-2 lg:hidden">
+            {/* Mobile Menu & Theme Controls */}
+            <div className="flex items-center gap-1.5 sm:hidden">
               <button
                 onClick={toggleTheme}
                 aria-label="Toggle dark mode"
-                className="p-2 rounded-full border border-[var(--line)] text-[var(--mute)] hover:text-[var(--gold)] transition-colors"
+                className="p-1.5 rounded-full border border-[var(--line)] text-[var(--mute)] hover:text-[var(--gold)] transition-colors"
               >
-                {mounted && isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                {mounted && isDark ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
               </button>
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
-                className="p-2 rounded-lg border border-[var(--line)] text-[var(--ink)] hover:text-[var(--gold)] transition-colors"
+                className="p-1.5 rounded-lg border border-[var(--line)] text-[var(--ink)] hover:text-[var(--gold)] transition-colors"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
