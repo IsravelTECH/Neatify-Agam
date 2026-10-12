@@ -97,54 +97,74 @@ export const Hero: React.FC = () => {
             </Reveal>
           </div>
 
-          {/* Right Column: Hero Framing with Authentic Assets & Floating Badges */}
+          {/* Right Column: Interactive Animated Living Space Hero Composition */}
           <div className="lg:col-span-5 relative">
             <Reveal delay={0.3} yOffset={30}>
-              <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Background decorative border frame */}
-                <div className="absolute -inset-3 rounded-2xl border-2 border-[var(--gold)]/30 transform rotate-1 pointer-events-none" />
+              <div className="relative mx-auto max-w-md lg:max-w-none group">
+                {/* Decorative gold backdrop halo */}
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[var(--gold)]/20 via-[var(--green)]/10 to-transparent blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
 
-                {/* Main Image container */}
+                {/* Outer frame with subtle rotate and border */}
+                <div className="absolute -inset-2.5 rounded-2xl border-2 border-[var(--gold)]/30 transform rotate-1 pointer-events-none group-hover:rotate-0 transition-transform duration-500" />
+
+                {/* Main Hero Visual Container */}
                 <div className="relative aspect-[4/5] sm:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-[var(--line)] bg-[var(--card)]">
                   <Image
-                    src="/images/neatify-hero.jpeg"
-                    alt="Neatify Agam Organised Home Care"
+                    src="/images/neatify-living-room.jpg"
+                    alt="Pristine Organised Living Space by NEATIFY AGAM"
                     fill
-                    className="object-cover object-center transform hover:scale-102 transition-transform duration-700"
+                    className="object-cover object-center transform group-hover:scale-105 transition-transform duration-1000 ease-out"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--green)]/70 via-transparent to-transparent" />
+                  
+                  {/* Subtle vignette gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--green)]/80 via-[var(--green)]/15 to-transparent" />
 
-                  {/* Caption overlay */}
-                  <div className="absolute bottom-5 left-5 right-5 text-[var(--ong)]">
-                    <p className="text-xs font-serif-heading italic tracking-wide text-[var(--gold)]">
+                  {/* Top Live Status Indicator */}
+                  <div className="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--card)]/90 backdrop-blur-md border border-[var(--line)] shadow-sm">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                    </span>
+                    <span className="text-[11px] font-bold text-[var(--ink)] tracking-wide">
+                      Active Across Chennai
+                    </span>
+                  </div>
+
+                  {/* Bottom Editorial Caption */}
+                  <div className="absolute bottom-5 left-5 right-5 text-[var(--ong)] z-10">
+                    <div className="flex items-center gap-1.5 text-[var(--gold)] text-xs font-bold uppercase tracking-widest mb-1">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span>Peace • Order • Warmth</span>
+                    </div>
+                    <p className="text-sm sm:text-base font-serif-heading italic text-[var(--ong)] leading-snug">
                       {BRAND.scripture}
                     </p>
-                    <p className="text-[11px] uppercase tracking-wider opacity-90">
+                    <p className="text-[10px] uppercase tracking-wider text-[var(--ong)]/70 mt-0.5">
                       {BRAND.scriptureRef}
                     </p>
                   </div>
                 </div>
 
-                {/* Floating Badge 1: Upfront Quote */}
-                <div className="absolute -top-4 -left-4 sm:-left-6 bg-[var(--card)] border border-[var(--line)] shadow-lg rounded-xl p-3.5 flex items-center gap-3 backdrop-blur-sm">
-                  <div className="p-2 rounded-lg bg-[var(--green)] text-[var(--ong)]">
+                {/* Floating Motion Badge 1: Upfront Quote */}
+                <div className="absolute -top-4 -left-3 sm:-left-6 bg-[var(--card)]/95 border border-[var(--line)] shadow-xl rounded-2xl p-3.5 flex items-center gap-3 backdrop-blur-md transform hover:-translate-y-1 transition-all duration-300">
+                  <div className="p-2.5 rounded-xl bg-[var(--green)] text-[var(--ong)] shadow-xs">
                     <ShieldCheck className="w-4 h-4 text-[var(--gold)]" />
                   </div>
                   <div>
                     <div className="text-xs font-bold text-[var(--ink)]">Clear Quote First</div>
-                    <div className="text-[11px] text-[var(--mute)]">No hidden surprise fees</div>
+                    <div className="text-[11px] text-[var(--mute)]">Zero hidden surprise fees</div>
                   </div>
                 </div>
 
-                {/* Floating Badge 2: Inspect Together, Then Pay */}
-                <div className="absolute -bottom-5 -right-3 sm:-right-6 bg-[var(--card)] border border-[var(--line)] shadow-lg rounded-xl p-3.5 flex items-center gap-3 backdrop-blur-sm">
-                  <div className="p-2 rounded-lg bg-[var(--gold)] text-[#17210f]">
+                {/* Floating Motion Badge 2: Inspect Together, Then Pay */}
+                <div className="absolute -bottom-5 -right-2 sm:-right-5 bg-[var(--card)]/95 border border-[var(--line)] shadow-xl rounded-2xl p-3.5 flex items-center gap-3 backdrop-blur-md transform hover:-translate-y-1 transition-all duration-300">
+                  <div className="p-2.5 rounded-xl bg-[var(--gold)] text-[#17210f] shadow-xs">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-xs font-bold text-[var(--ink)]">Inspect, Then Pay</div>
-                    <div className="text-[11px] text-[var(--mute)]">Joint walkthrough walkout</div>
+                    <div className="text-[11px] text-[var(--mute)]">Joint walkthrough review</div>
                   </div>
                 </div>
               </div>
