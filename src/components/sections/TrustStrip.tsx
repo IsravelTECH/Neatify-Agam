@@ -58,6 +58,24 @@ export const TrustStrip: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Homepage Hero Trust Indicator: Customer Experiences */}
+          <div className="mt-6 pt-6 border-t border-[var(--line)]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left bg-[var(--bg)]/70 p-4 rounded-xl border border-[var(--line)]/40">
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <span className="text-xs font-bold text-[var(--green)] uppercase tracking-wider bg-[var(--green)]/10 px-2.5 py-1 rounded-full">
+                Real Customers. Real Experiences.
+              </span>
+              <p className="text-xs sm:text-sm text-[var(--mute)] font-medium">
+                Discover what customers say about NEATIFY AGAM.
+              </p>
+            </div>
+            <a
+              href="#testimonials"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-bold bg-[var(--card)] border border-[var(--gold)] text-[var(--ink)] hover:bg-[var(--gold)] hover:text-[#17210f] transition-all duration-200 shrink-0 shadow-2xs"
+            >
+              Read Customer Reviews
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>

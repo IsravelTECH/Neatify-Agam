@@ -28,6 +28,7 @@ export const NAVIGATION_LINKS = [
   { name: "Sectors", href: "#sectors" },
   { name: "Pricing", href: "#pricing" },
   { name: "Packages", href: "#packages" },
+  { name: "Reviews", href: "#testimonials" },
   { name: "How It Works", href: "#how-it-works" },
   { name: "Our Promise", href: "#promises" },
   { name: "Hundi of Help", href: "#hundi-of-help" },

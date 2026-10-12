@@ -9,12 +9,14 @@ import { ServiceCatalogue } from "@/components/sections/ServiceCatalogue";
 import { Pricing } from "@/components/sections/Pricing";
 import { HomePackages } from "@/components/sections/HomePackages";
 import { MonthlyPlans } from "@/components/sections/MonthlyPlans";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { Loyalty } from "@/components/sections/Loyalty";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Promises } from "@/components/sections/Promises";
 import { Safety } from "@/components/sections/Safety";
 import { SocialImpact } from "@/components/sections/SocialImpact";
 import { FAQ } from "@/components/sections/FAQ";
+import { BookingHighlight } from "@/components/sections/BookingHighlight";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -30,12 +32,14 @@ export default function Home() {
         <Pricing />
         <HomePackages />
         <MonthlyPlans />
+        <Testimonials />
         <Loyalty />
         <HowItWorks />
         <Promises />
         <Safety />
         <SocialImpact />
         <FAQ />
+        <BookingHighlight />
         <Contact />
       </main>
       <Footer />

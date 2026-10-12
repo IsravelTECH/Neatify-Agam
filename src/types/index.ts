@@ -56,3 +56,10 @@ export interface FaqItem {
   answer: string;
   category?: string;
 }
+
+export interface TestimonialItem {
+  id: string;
+  service: string;
+  reviewText: string;
+  customerName: string;
+}
